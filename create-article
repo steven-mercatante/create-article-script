@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Alfred sometimes has trouble finding Node; the below fixes that
+export PATH=$PATH:/usr/local/bin
+
 # Require a single argument for the article name
 if [ $# -ne 1 ]; then
   echo 1>&2 "Usage: $0 article-name"
