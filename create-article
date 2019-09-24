@@ -8,7 +8,7 @@ fi
 
 # Create the article file
 # Uses Gatsby Post Manager (gpm): https://github.com/steven-mercatante/gatsby-post-manager
-RESULT=`gpm posts new /Users/steve/sites/stevemerc.com/content/posts "$1"`
+RESULT=`/usr/local/bin/gpm posts new /Users/steve/sites/stevemerc.com/content/posts "$1"`
 
 # Split $RESULT into an array
 # $RESULT normally looks like: "/path/to/posts/post.md successfully created", but we only want the filename
