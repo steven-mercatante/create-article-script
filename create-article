@@ -7,6 +7,7 @@ if [ $# -ne 1 ]; then
 fi
 
 # Create the article file
+# Uses Gatsby Post Manager (gpm): https://github.com/steven-mercatante/gatsby-post-manager
 RESULT=`gpm posts new /Users/steve/sites/stevemerc.com/content/posts "$1"`
 
 # Split $RESULT into an array
