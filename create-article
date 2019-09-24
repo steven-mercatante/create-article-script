@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Require a single argument for the article name
+if [ $# -ne 1 ]; then
+  echo 1>&2 "Usage: $0 article-name"
+  exit 3
+fi
+
+# Create the article file
+RESULT=`gpm posts new /Users/steve/sites/stevemerc.com/content/posts "$1"`
+
+# Split $RESULT into an array
+# $RESULT normally looks like: "/path/to/posts/post.md successfully created", but we only want the filename
+
+# This is the delimiter that $RESULT will be split on
+IFS=' '  
+
+# Creates $ARTICLE_ARR array from $RESULT string
+read -ra ARTICLE_ARR <<< $RESULT
+
+# Grab just the filename from the success or error message
+ARTICLE=${ARTICLE_ARR[0]}
+
+# Open up VS Code on the proper project, then open up the newly created article
+/usr/local/bin/code /Users/steve/sites/stevemerc.com && /usr/local/bin/code $ARTICLE
